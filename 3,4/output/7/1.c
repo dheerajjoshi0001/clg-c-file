@@ -1,24 +1,26 @@
 #include <stdio.h>
 
+// Function to find the factorial of a number
+unsigned long long factorial(int n) {
+    if (n == 0 || n == 1)
+        return 1;
+    else
+        return n * factorial(n - 1);
+}
+
 int main() {
-    int num, i;
-    unsigned long long factorial = 1;
+    int number;
+    unsigned long long result;
 
-    // Input the number
+    // Input from the user
     printf("Enter a number: ");
-    scanf("%d", &num);
+    scanf("%d", &number);
 
-    // Check if the number is negative, zero, or positive
-    if (num < 0)
-        printf("Factorial of a negative number doesn't exist.\n");
-    else {
-        // Calculate the factorial
-        for(i = 1; i <= num; ++i) {
-            factorial *= i;
-        }
-        // Output the result
-        printf("Factorial of %d = %llu\n", num, factorial);
-    }
+    // Calculate factorial
+    result = factorial(number);
+
+    // Output the result
+    printf("The factorial of %d is %llu\n", number, result);
 
     return 0;
 }
